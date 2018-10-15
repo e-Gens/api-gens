@@ -1,0 +1,16 @@
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+html, body {
+    background-color: #fff;
+    color: #636b6f;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 200;
+    height: 100%;
+    margin: 0;
+}
