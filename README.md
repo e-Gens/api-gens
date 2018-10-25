@@ -1,5 +1,9 @@
 # API-Gens - Sistema de Gestão do Ensino
 
+## Build Status
+
+[![Build Status](https://travis-ci.org/e-Gens/api-gens.svg?branch=master)](https://travis-ci.org/e-Gens/api-gens)
+
 ## Copyright
 
 #### English
