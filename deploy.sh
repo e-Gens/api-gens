@@ -15,7 +15,7 @@ progress
 rm $REMOTE_ROOT/$LOCAL_ROOT/$FILE
 
 progress
-put -r $LOCAL_ROOT $REMOTE_ROOT
+put -r $TRAVIS_BUILD_DIR $REMOTE_ROOT
 bye
 END_SCRIPT
 exit 0
