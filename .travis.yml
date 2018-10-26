@@ -9,8 +9,6 @@ cache:
   - node_modules
   - vendor
 before_script:
-- echo $branch
-- echo branch
 - cp .env.travis .env
 - composer self-update
 - composer install --no-interaction --optimize-autoloader
@@ -25,14 +23,7 @@ script:
 - vendor/bin/phpunit
 - yarn run production
 after_success:
-- |
-  if [ branch == "develop" ]; then
-    bash ./deploy.sh;
-  fi
-- |
-  if [ $branch == "develop" ]; then
-    bash ./deploy.sh;
-  fi
+- "./deploy.sh"
 notifications:
   slack:
     rooms:
