@@ -10,12 +10,14 @@
 # -v => (verbose) com log de execução
 # -o => opção ssh - sem validação restrita por chaves
 # --------------------------------------------------
+cd $TRAVIS_BUILD_DIR ;
+cd .. ;
 sshpass -p $FTP_PASSWD sftp -P $FTP_PORT -v -o StrictHostKeyChecking=no $FTP_USER@$FTP_HOST <<END_SCRIPT
 progress
 rm $REMOTE_ROOT/$LOCAL_ROOT/$FILE
 
 progress
-put -r $TRAVIS_BUILD_DIR $REMOTE_ROOT
+put -r $LOCAL_ROOT $REMOTE_ROOT
 bye
 END_SCRIPT
 exit 0
