@@ -19,6 +19,8 @@ before_script:
 - yarn install
 before_install:
 - mysql -e 'CREATE DATABASE gens_test;'
+- sudo apt-get update
+- sudo apt-get install -y sshpass
 script:
 - vendor/bin/phpunit
 - yarn run production
