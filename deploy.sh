@@ -10,6 +10,12 @@
 # -v => (verbose) com log de execução
 # -o => opção ssh - sem validação restrita por chaves
 # --------------------------------------------------
+
+# remove node_modules
+rm -rf node_modules;
+# remove tests
+rm -rf tests;
+
 cd $TRAVIS_BUILD_DIR ;
 cd .. ;
 sshpass -p $FTP_PASSWD sftp -P $FTP_PORT -v -o StrictHostKeyChecking=no $FTP_USER@$FTP_HOST <<END_SCRIPT
