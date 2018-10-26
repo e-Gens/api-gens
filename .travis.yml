@@ -22,3 +22,12 @@ before_install:
 script:
 - vendor/bin/phpunit
 - yarn run production
+after_success:
+- if: branch = master OR develop
+- "./deploy.sh"
+notifications:
+  slack:
+    rooms:
+      secure: ktvWbrgA+2ufyUPDCijAEHkOeP82ZyQRkMMQzAvzZjbl56ypjeD80a12OAyJue2+zVQ9ceWQ5hSfpF2NGgwz6i7U2THh4ZxFBrhFSKBq5gaUDemkZaw0PU1T4YjbArCHiSDUyO3fc7Tt2yjD6Pf7pA2PIkZNZN5NG6l0Zg8rqE+2Rwzz6I73ZlsP93mcZLY9sy3a9s7lEFGb4RSmf2xXHNIf5CoilRWnGm67cm9ZJhAXL3GkOFwVbrrE+mos1+2ifg8HYfNB9SL+4We5tY+scCNyb2RW5ux2Gh+L37/m146RUGxH4WX6WiJsB10BuJV/5WSXpCsn9FaElR9CF6ZFjsMGvS+HZwVDq9O6nBjEMPSouzj9PYk4b0Mba8TdeuWatOiVxKaKRUSkAR2NkBBVtXY7RRCIcYA6MXJPACKkvkC3qpgLVsN1afaKtkKVhC24t588iomAp3iRKkNsLS1gtCYGWE3nfe3mfwM+UjY00JOOY8KWD5vwHc/dD5MLIvE7faJ1y7+VL/z7hd9CfVTaSFeFITW07zMEljBsh93NM3sf4ZpBEN5LaL38DCmOCygwHLKrY/jjHK3+GytW6Rh2uEt1vV/1/XSVPeB6XPL2RZ6bSU6RGRq8jRW4AvoZRrkutouNgd0iynLeYyGkGHPBivMqCFSm4JHVPKiqxg2elkI=
+    on_success: always
+    on_failure: always
