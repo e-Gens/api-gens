@@ -9,7 +9,8 @@ cache:
   - node_modules
   - vendor
 before_script:
-- echo ${branch}
+- echo $branch
+- echo branch
 - cp .env.travis .env
 - composer self-update
 - composer install --no-interaction --optimize-autoloader
@@ -25,8 +26,12 @@ script:
 - yarn run production
 after_success:
 - |
-  if [ "${branch}" == "develop" ]; then
-    bash ./deploy.sh
+  if [ branch == "develop" ]; then
+    bash ./deploy.sh;
+  fi
+- |
+  if [ $branch == "develop" ]; then
+    bash ./deploy.sh;
   fi
 notifications:
   slack:
