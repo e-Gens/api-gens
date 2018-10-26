@@ -23,7 +23,7 @@ script:
 - vendor/bin/phpunit
 - yarn run production
 after_success:
-  if: branch = develop
+  - if: branch IN (master, develop)
   - "./deploy.sh"
 notifications:
   slack:
