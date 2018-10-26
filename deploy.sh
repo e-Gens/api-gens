@@ -1,4 +1,8 @@
 #!/bin/sh
+# Essa linha automatiza o login no servidor e a
+# atualização dos arquivos do repositório caso
+# o commit tenha sido feito a partir do branch
+# master.
 # Variáveis via Travis Secrets
 
 # ==================================================
@@ -18,7 +22,8 @@ SCRIPT="cd api-gens; git pull; composer install --no-interaction --no-dev --opti
 # -v => (verbose) com log de execução
 # -o => opção ssh - sem validação restrita por chaves
 # --------------------------------------------------
-if [ "${TRAVIS_BRANCH}" = "develop" ] # Apenas se [branch]
+if [ "${TRAVIS_BRANCH}" = "master" ]
+# Deploy apenas no [master]
 then
     # loga no ssh e executa o script
     sshpass -p $FTP_PASSWD ssh -v -p $FTP_PORT -o StrictHostKeyChecking=no $FTP_USER@$FTP_HOST $SCRIPT
