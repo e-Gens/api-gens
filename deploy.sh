@@ -22,7 +22,7 @@ SCRIPT="cd api-gens; git pull; composer install --no-interaction --no-dev --opti
 # -v => (verbose) com log de execução
 # -o => opção ssh - sem validação restrita por chaves
 # --------------------------------------------------
-if [ "${TRAVIS_BRANCH}" = "master" ]
+if [ "${TRAVIS_BRANCH}" = "develop" ] && [ "${TRAVIS_PULL_REQUEST}" = "false" ]
 # Deploy apenas no [master]
 then
     # loga no ssh e executa o script
