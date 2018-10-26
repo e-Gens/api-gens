@@ -13,14 +13,12 @@
 
 
 # loga no ssh
-if [ "${branch}" == "develop" ]; then
-sshpass -p ${FTP_PASSWD} ssh -v -p ${FTP_PORT} -o StrictHostKeyChecking=no ${FTP_USER}@${FTP_HOST} <<END_SCRIPT
+sshpass -p $FTP_PASSWD ssh -v -p $FTP_PORT -o StrictHostKeyChecking=no $FTP_USER@$FTP_HOST <<END_SCRIPT
 cd api-gens;
 git pull;
 composer install --no-interaction --no-dev --optimize-autoloader
 END_SCRIPT
 exit 0
-fi
 # ==================================================
 # cd api-gens; => entra no diretório base da api
 # git pull; => baixa as atualizações pelo git
