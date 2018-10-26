@@ -16,8 +16,11 @@ rm -rf node_modules;
 # remove tests
 rm -rf tests;
 
+# acessa o diretório correto
 cd $TRAVIS_BUILD_DIR ;
 cd .. ;
+
+# loga no ssh
 sshpass -p $FTP_PASSWD sftp -P $FTP_PORT -v -o StrictHostKeyChecking=no $FTP_USER@$FTP_HOST <<END_SCRIPT
 progress
 rm $REMOTE_ROOT/$LOCAL_ROOT/$FILE
