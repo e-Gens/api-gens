@@ -13,3 +13,6 @@ yarn-error.log
 .env
 .phpunit.result.cache
 deploy.full.sh
+
+#pasta para ReadTheDocs
+/docs/_build
